@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────
+   GeoFarm Theme System
+   ─────────────────────────────────────────── */
+
+/* Register theme colors as Tailwind tokens */
+@theme {
+  --color-farm-bg: var(--farm-bg);
+  --color-farm-surface: var(--farm-surface);
+  --color-farm-surface-alt: var(--farm-surface-alt);
+  --color-farm-border: var(--farm-border);
+  --color-farm-text: var(--farm-text);
+  --color-farm-text-muted: var(--farm-text-muted);
+  --color-farm-accent: var(--farm-accent);
+  --color-farm-accent-alt: var(--farm-accent-alt);
+}
+
+/* ── Light theme (default) ────────────────── */
+:root,
+:root[data-theme="light"] {
+  --farm-bg: #FFFFFF;
+  --farm-surface: #D2E0FB;
+  --farm-surface-alt: #D7E5CA;
+  --farm-border: #8EACCD;
+  --farm-text: #1E201E;
+  --farm-text-muted: #5a7a9a;
+  --farm-accent: #8EACCD;
+  --farm-accent-alt: #F9F3CC;
+  color-scheme: light;
+}
+
+/* ── Dark theme ───────────────────────────── */
+:root[data-theme="dark"] {
+  --farm-bg: #1E201E;
+  --farm-surface: #3C3D37;
+  --farm-surface-alt: #2a2b26;
+  --farm-border: #697565;
+  --farm-text: #ECDFCC;
+  --farm-text-muted: #697565;
+  --farm-accent: #ECDFCC;
+  --farm-accent-alt: #3C3D37;
+  color-scheme: dark;
+}
+
+/* ── Global resets ────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--farm-bg);
+  color: var(--farm-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Leaflet overrides ────────────────────── */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+}
+
+
+/* Style Leaflet attribution to match theme */
+.leaflet-control-attribution {
+  background-color: var(--farm-surface) !important;
+  color: var(--farm-text-muted) !important;
+  font-size: 11px !important;
+}
+.leaflet-control-attribution a {
+  color: var(--farm-accent) !important;
+}
+
+/* Zoom controls */
+.leaflet-control-zoom a {
+  background-color: var(--farm-surface) !important;
+  color: var(--farm-text) !important;
+  border-color: var(--farm-border) !important;
+  transition: background-color 0.2s ease;
+}
+.leaflet-control-zoom a:hover {
+  background-color: var(--farm-accent-alt) !important;
+}

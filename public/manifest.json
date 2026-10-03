@@ -1,0 +1,9 @@
+{
+  "name": "GeoFarm",
+  "short_name": "GeoFarm",
+  "start_url": "/map",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#FFFFFF",
+  "theme_color": "#D2E0FB"
+}

@@ -5,7 +5,7 @@ export enum InterestType {
     "Other" = "Other"
 }
 
-export enum InterestTypesIcons{
+export enum InterestTypesIcons {
     "SoilTest" = "soilTest",
     "Pests" = "bug",
     "PlantDiseases" = "planSick",

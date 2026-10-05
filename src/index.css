@@ -43,12 +43,12 @@
   color-scheme: dark;
 }
 
-/* ── Global resets ────────────────────────── */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/*!* ── Global resets ────────────────────────── *!*/
+/** {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  box-sizing: border-box;*/
+/*}*/
 
 html,
 body,
@@ -81,6 +81,7 @@ body {
   color: var(--farm-text-muted) !important;
   font-size: 11px !important;
 }
+
 .leaflet-control-attribution a {
   color: var(--farm-accent) !important;
 }
@@ -92,6 +93,12 @@ body {
   border-color: var(--farm-border) !important;
   transition: background-color 0.2s ease;
 }
+
 .leaflet-control-zoom a:hover {
   background-color: var(--farm-accent-alt) !important;
+}
+
+/* Remove default focus outline on map shapes */
+.leaflet-interactive:focus {
+  outline: none;
 }

@@ -8,6 +8,9 @@ import { fieldsRender } from "./FieldsRender.ts";
 import { pointRender } from "./PointRender.tsx";
 import type { FarmFeature, FieldFeature } from "../../dtos/FarmFeature.ts";
 
+import '../../Leaflet_DumbMGRS/L.DumbMGRS.scss';
+import { generateGZDGrids, generate100kGrids, generate1000meterGrids } from '../../Leaflet_DumbMGRS/L.DumbMGRS.js';
+
 
 import ActivityPopup from '../ActivityPopup/ActivityPopup.tsx';
 import PoiDetailsPopup from '../PoiPopup/PoiDetailsPopup.tsx';
@@ -63,6 +66,11 @@ export default function MainMap() {
                 '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             maxZoom: 19,
         }).addTo(map);
+
+        // MGRS Grids
+        generateGZDGrids.addTo(map);
+        generate100kGrids.addTo(map);
+        generate1000meterGrids.addTo(map);
 
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 

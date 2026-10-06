@@ -1,4 +1,5 @@
 import * as mgrs from 'mgrs';
+import { formatMGRS } from '../../utils/formatMGRS';
 
 interface PoiDetailsPopupProps {
     name: string;
@@ -20,7 +21,7 @@ export default function PoiDetailsPopup({ name, type, description, dateStr, lat,
                     <span>Lng: {lng.toFixed(5)}</span>
                 </div>
                 <div className="text-[12px] text-base font-mono tracking-tight flex gap-3">
-                    <span>MGRS: {mgrs.forward([lng, lat], 5)}</span>
+                    <span>MGRS: {formatMGRS(mgrs.forward([lng, lat], 4))}</span>
                 </div>
             </div>
             <div className="text-sm text-base mb-2">Тип: {type}</div>

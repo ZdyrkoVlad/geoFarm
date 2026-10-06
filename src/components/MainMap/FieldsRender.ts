@@ -2,6 +2,7 @@ import type {FarmFeature} from "../../dtos/FarmFeature.ts";
 
 import L from 'leaflet';
 import * as mgrs from 'mgrs';
+import { formatMGRS } from '../../utils/formatMGRS';
 
 export function fieldsRender(map: L.Map, fields: FarmFeature[],
                              onFieldClick?: (feature: FarmFeature, latlng: L.LatLng) => void): L.GeoJSON {
@@ -25,7 +26,7 @@ export function fieldsRender(map: L.Map, fields: FarmFeature[],
             const getTooltipHtml = (lat?: string, lng?: string) => {
                 let coordHtml = '';
                 if (lat && lng) {
-                    const mgrsStr = mgrs.forward([parseFloat(lng), parseFloat(lat)], 5);
+                    const mgrsStr = formatMGRS(mgrs.forward([parseFloat(lng), parseFloat(lat)], 5));
                     coordHtml = `<br/><div style="font-family: monospace; font-size: 10px; margin-top: 4px; opacity: 0.8; display: flex; flex-direction: column; gap: 2px;">
                         <div style="display: flex; gap: 8px;"><span>Lat: ${lat}</span><span>Lng: ${lng}</span></div>
                         <div>MGRS: ${mgrsStr}</div>

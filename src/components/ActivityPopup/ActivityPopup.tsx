@@ -2,6 +2,7 @@ import {InterestType, InterestPointTranslation} from '../../dtos/InterestType';
 import {useMapStore} from '../../stores/MapStore';
 import type { PointFeature } from '../../dtos/FarmFeature';
 import * as mgrs from 'mgrs';
+import { formatMGRS } from '../../utils/formatMGRS';
 
 interface ActivityPopupProps {
     lat: number;
@@ -48,7 +49,7 @@ export default function ActivityPopup({ lat, lng, onClose }: ActivityPopupProps)
                     <span>Lng: {lng.toFixed(5)}</span>
                 </div>
                 <div className="text-[12px] text-base font-mono tracking-tight flex gap-3">
-                    <span>MGRS: {mgrs.forward([lng, lat], 5)}</span>
+                    <span>MGRS: {formatMGRS(mgrs.forward([lng, lat], 5))}</span>
                 </div>
             </div>
             

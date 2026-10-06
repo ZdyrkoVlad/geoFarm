@@ -5,6 +5,7 @@ import { InterestPointTranslation, InterestType, InterestTypesIcons } from '../.
 import Icon from '../Icon/Icon';
 import { isFeatureVisible } from '../../utils/filterUtils';
 import * as mgrs from 'mgrs';
+import { formatMGRS } from '../../utils/formatMGRS';
 
 export default function PointsList() {
     const activeItems = useMapStore((s) => s.activeItems);
@@ -62,12 +63,12 @@ export default function PointsList() {
                                 <span>{date}</span>
                             </div>
                             <div className="flex flex-col gap-0.5 mt-0.5">
-                                <div className="text-[10px] text-farm-text-muted/70 font-mono tracking-tight flex gap-3">
+                                <div className="text-[10px] text-farm-text font-mono tracking-tight flex gap-3">
                                     <span>Lat: {lat.toFixed(5)}</span>
                                     <span>Lng: {lng.toFixed(5)}</span>
                                 </div>
-                                <div className="text-[10px] text-farm-text-muted/70 font-mono tracking-tight">
-                                    MGRS: {mgrs.forward([lng, lat], 5)}
+                                <div className="text-[10px] text-farm-text font-mono tracking-tight">
+                                    MGRS: {formatMGRS(mgrs.forward([lng, lat], 5))}
                                 </div>
                             </div>
                         </div>

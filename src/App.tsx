@@ -5,8 +5,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/map" element={<MapScreen />} />
-        <Route path="*" element={<Navigate to="/map" replace />} />
+        <Route path="/" element={<MapScreen />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

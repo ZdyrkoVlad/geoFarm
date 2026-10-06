@@ -11,3 +11,11 @@ export enum InterestTypesIcons {
     "PlantDiseases" = "planSick",
     "Other" = "other"
 }
+
+
+export enum InterestPointTranslation{
+    "SoilTest" = "Проба грунту",
+    "Pests" = "Шкідники",
+    "PlantDiseases" = "Хвороби рослин",
+    "Other" = "Інше"
+}

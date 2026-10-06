@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "geojson": "^0.5.0",
     "leaflet": "^1.9.4",
+    "leaflet-extra-markers": "^2.0.1",
+    "mgrs": "^2.2.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.4",

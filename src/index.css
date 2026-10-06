@@ -102,3 +102,25 @@ body {
 .leaflet-interactive:focus {
   outline: none;
 }
+
+/* Custom styles for POI Popup */
+.custom-poi-popup .leaflet-popup-content-wrapper,
+.custom-poi-popup .leaflet-popup-tip {
+  background-color: var(--farm-surface);
+  color: var(--farm-text);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.custom-poi-popup .leaflet-popup-content-wrapper {
+  border: 1px solid var(--farm-border);
+  border-radius: 0.5rem;
+}
+
+.custom-poi-popup .leaflet-popup-tip {
+  border-bottom: 1px solid var(--farm-border);
+  border-right: 1px solid var(--farm-border);
+}
+
+.custom-poi-popup .leaflet-popup-content {
+  margin: 14px;
+}

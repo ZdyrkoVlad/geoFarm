@@ -9,7 +9,7 @@ export default function ThemeToggle() {
         <button
             type="button"
             onClick={toggle}
-            className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-lg
+            className="flex items-center justify-center w-9 h-9 rounded-lg
                      bg-farm-accent-alt/60 hover:bg-farm-accent-alt
                      border border-farm-border/30
                      text-farm-text

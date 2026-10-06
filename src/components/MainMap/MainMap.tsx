@@ -18,6 +18,7 @@ import { createPortal } from 'react-dom';
 import { InterestPointTranslation } from '../../dtos/InterestType.ts';
 import type { PointFeature } from '../../dtos/FarmFeature.ts';
 import { isFeatureVisible } from '../../utils/filterUtils';
+import { useMGRSStorage } from '../../hooks/useMGRSStorage.ts';
 
 delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)._getIconUrl;
 
@@ -45,6 +46,7 @@ export default function MainMap() {
     const [activePopup, setActivePopup] = useState<ActivePopup>(null);
 
     const activeItems = useMapStore((s) => s.activeItems);
+    const { isMGRSEnabled } = useMGRSStorage();
 
     const selectField = useMapStore((s) => s.selectField);
     const selectedField = useMapStore((s: MapState): FieldFeature | null => s.selectedField);
@@ -67,11 +69,6 @@ export default function MainMap() {
             maxZoom: 19,
         }).addTo(map);
 
-        // MGRS Grids
-        generateGZDGrids.addTo(map);
-        generate100kGrids.addTo(map);
-        generate1000meterGrids.addTo(map);
-
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
         mapInstanceRef.current = map;
@@ -84,6 +81,22 @@ export default function MainMap() {
             setMapReady(false);
         };
     }, []);
+
+    // Toggle MGRS Grid
+    useEffect(() => {
+        const map = mapInstanceRef.current;
+        if (!mapReady || !map) return;
+
+        if (isMGRSEnabled) {
+            generateGZDGrids.addTo(map);
+            generate100kGrids.addTo(map);
+            generate1000meterGrids.addTo(map);
+        } else {
+            generateGZDGrids.remove();
+            generate100kGrids.remove();
+            generate1000meterGrids.remove();
+        }
+    }, [isMGRSEnabled, mapReady]);
 
     useEffect(() => {
         const map = mapInstanceRef.current;

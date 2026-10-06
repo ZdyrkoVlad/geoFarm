@@ -5,6 +5,7 @@ import InfoCard from '../components/InfoCard/InfoCard';
 import PointsList from '../components/PointsList/PointsList';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ThemeToggle from '../components/ThemeToggle/ThemeToggle';
+import MGRSToggle from '../components/MGRSToggle/MGRSToggle';
 import { mockData } from '../../mockData/fields';
 import { useMapStore } from '../stores/MapStore';
 import { DeletePointConfirm } from '../components/MainMap/DeletePointConfirm';
@@ -44,7 +45,10 @@ export default function MapScreen() {
             </div>
         </div>
 
-        <ThemeToggle />
+        <div className="absolute top-3 right-3 z-10 flex gap-2">
+            <MGRSToggle />
+            <ThemeToggle />
+        </div>
         <ActivityPanel />
         <MainMap />
         

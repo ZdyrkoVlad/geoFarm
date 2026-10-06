@@ -756,8 +756,8 @@ const GZD = L.LayerGroup.extend({
   },
 
   onRemove(map) {
-    this._map = map;
-    this._map.off(`viewreset ${this.options.redraw} move`, this._map);
+    this._map.off(`viewreset ${this.options.redraw} move`, this.getInBoundsGZDs, this);
+    L.LayerGroup.prototype.onRemove.call(this, map);
   },
 
   hideGrids() {
@@ -1017,8 +1017,8 @@ const MGRS100K = L.LayerGroup.extend({
   },
 
   onRemove(map) {
-    this._map = map;
-    this._map.off(`viewreset ${this.options.redraw}`, this._map);
+    this._map.off(`viewreset ${this.options.redraw}`, this.getVizGrids, this);
+    L.LayerGroup.prototype.onRemove.call(this, map);
   },
 
   hideGrids() {
@@ -1687,8 +1687,8 @@ const MGRS1000Meters = L.LayerGroup.extend({
   },
 
   onRemove(map) {
-    this._map = map;
-    this._map.off(`viewreset ${this.options.redraw}`, this._map);
+    this._map.off(`viewreset ${this.options.redraw} moveend`, this.regenerate, this);
+    L.LayerGroup.prototype.onRemove.call(this, map);
   },
 
   hideGrids() {

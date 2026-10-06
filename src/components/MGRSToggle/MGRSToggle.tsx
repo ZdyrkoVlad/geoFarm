@@ -1,5 +1,5 @@
 import Icon from '../Icon/Icon';
-import { useMGRSStorage } from '../../hooks/useMGRSStorage';
+import { useMGRSStorage } from '../../stores/useMGRSStorage.ts';
 
 export default function MGRSToggle() {
     const { isMGRSEnabled, toggleMGRS } = useMGRSStorage();

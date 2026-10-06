@@ -78,7 +78,7 @@ export default function ActivityPopup({ lat, lng, onClose }: ActivityPopupProps)
                 <textarea
                     name="description"
                     placeholder="Додаткові нотатки..."
-                    rows={2}
+                    rows={4}
                     className="bg-farm-bg border border-farm-border rounded text-sm text-farm-text placeholder-farm-text-muted outline-none px-2 py-1.5 resize-y focus:border-farm-accent"
                 />
             </label>

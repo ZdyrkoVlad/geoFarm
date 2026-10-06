@@ -18,7 +18,7 @@ import { createPortal } from 'react-dom';
 import { InterestPointTranslation } from '../../dtos/InterestType.ts';
 import type { PointFeature } from '../../dtos/FarmFeature.ts';
 import { isFeatureVisible } from '../../utils/filterUtils';
-import { useMGRSStorage } from '../../hooks/useMGRSStorage.ts';
+import { useMGRSStorage } from '../../stores/useMGRSStorage.ts';
 
 delete (L.Icon.Default.prototype as unknown as Record<string, unknown>)._getIconUrl;
 

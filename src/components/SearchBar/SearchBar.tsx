@@ -41,7 +41,7 @@ export default function SearchBar() {
                 onChange={(e) => setLocalQuery(e.target.value)}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
-                placeholder="Search:name,description"
+                placeholder="Пошук:назва,опис"
                 className="flex-1 bg-transparent border-none outline-none
                    text-lg text-farm-text placeholder-farm-text-muted
                    py-2 px-2"
